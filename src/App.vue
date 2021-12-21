@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <lifecycle :adrien="pfff" v-if="visible" />
+    <lifecycle />
     <button @click="toggle">Toggle if</button>
     {{ plusGrand }}
   </div>

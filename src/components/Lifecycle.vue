@@ -1,21 +1,41 @@
 <template>
-<div>VISIBLE LIFECYCLE {{ adrien }}</div>
+  <div>
+    VISIBLE LIFECYCLE
+    <button @click="changeObj">change obj</button>
+    <button @click="changeProp">change prop</button>
+  </div>
 </template>
 
 <script>
 export default {
-  name: 'Lifecycle',
-  props: {
-    adrien: {
-      type: String,
-      required: true,
+  name: "Lifecycle",
+  data() {
+    return {
+      obj: {
+        adrien: ":)",
+      },
+    };
+  },
+
+  methods: {
+    changeObj() {
+      this.obj = {
+        marina: ":D",
+      };
+    },
+    changeProp() {
+      this.obj.adrien = ":(";
     },
   },
+
   watch: {
-    adrien(newVal, oldVal) {
-      console.log('ancienne', oldVal)
-      console.log('nouvelle', newVal)
-    }
+    obj: {
+      handler(newVal, oldVal) {
+        console.log("ancienne", oldVal);
+        console.log("nouvelle", newVal);
+      },
+      deep: true,
+    },
   },
-}
+};
 </script>
