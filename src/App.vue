@@ -1,17 +1,36 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <lifecycle :adrien="pfff" v-if="visible" />
+    <button @click="toggle">Toggle if</button>
+    {{ plusGrand }}
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Lifecycle from "./components/Lifecycle.vue"
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Lifecycle
+  },
+  data() {
+    return {
+      visible: true,
+      pfff: ':)'
+    }
+  },
+  computed: {
+    plusGrand() {
+      if (this.pfff === ':)') return ':D'
+      else return 'D:'
+    }
+  },
+  methods: {
+    toggle() {
+      if (this.pfff === ':)') this.pfff = ':('
+      else this.pfff = ':)'
+    }
   }
 }
 </script>
